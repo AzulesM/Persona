@@ -7,6 +7,8 @@
 //
 
 #import "LoginTableViewController.h"
+#import "Spinner.h"
+@import FirebaseAuth;
 
 @interface LoginTableViewController () <UITextFieldDelegate>
 
@@ -40,23 +42,51 @@
     [super viewWillDisappear:animated];
     
     [self.view endEditing:YES];
+    [Spinner stop];
 }
 
 - (IBAction)loginButtonTapped {
     [self.view endEditing:YES];
     
     if ([self.emailTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""]) {
-        [self alertWithMessage:NSLocalizedString(@"Please enter an email and password.", nil)];
+        [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:NSLocalizedString(@"Please enter an email and password.", nil)];
     } else {
-        
+        [self loginUser];
     }
+}
+
+- (void)loginUser {
+    [Spinner start];
+    
+    [[FIRAuth auth] signInWithEmail:self.emailTextField.text
+                           password:self.passwordTextField.text completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+                               [Spinner stop];
+                               
+                               if (!error) {
+                                   
+                               } else {
+                                   [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:error.localizedDescription];
+                               }
+                           }];
 }
 
 - (void)resetPasswordWithEmail:(NSString *)email {
     if ([email isEqualToString:@""]) {
-        [self alertWithMessage:@"Please enter an email."];
+        [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:@"Please enter an email."];
         return;
     }
+    
+    [Spinner start];
+    
+    [[FIRAuth auth] sendPasswordResetWithEmail:email completion:^(NSError *error) {
+        [Spinner stop];
+        
+        if (!error) {
+            [self alertWithTitle:NSLocalizedString(@"Reset Password Successful", nil) andMessage:@""];
+        } else {
+            [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:error.localizedDescription];
+        }
+    }];
 }
 
 #pragma mark - Alert Message
@@ -88,8 +118,8 @@
     }
 }
 
-- (void)alertWithMessage:(NSString *)message {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
+- (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import Firebase;
 
 @interface AppDelegate ()
 
@@ -15,6 +16,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FIRApp configure];
+    
     UINavigationBar *navigationBar = [UINavigationBar appearance];
     navigationBar.translucent = NO;
     navigationBar.tintColor = [UIColor whiteColor];
@@ -22,7 +25,12 @@
     navigationBar.titleTextAttributes = @{NSFontAttributeName            : [UIFont fontWithName:@"MarkerFelt-Wide" size:20.f],
                                           NSForegroundColorAttributeName : [UIColor whiteColor]};
     
+    [self checkCurrentUser];
+    
     return YES;
+}
+
+- (void)checkCurrentUser {
 }
 
 @end

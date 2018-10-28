@@ -7,6 +7,8 @@
 //
 
 #import "SignUpTableViewController.h"
+#import "Spinner.h"
+@import FirebaseAuth;
 
 @interface SignUpTableViewController () <UITextFieldDelegate>
 
@@ -32,6 +34,7 @@
     [super viewWillDisappear:animated];
     
     [self.view endEditing:YES];
+    [Spinner stop];
 }
 
 - (IBAction)signUpButtonTapped {
@@ -39,9 +42,26 @@
     
     if ([self.emailTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""] || [self.comfirmTextField.text isEqualToString:@""]) {
         [self alertWithMessage:NSLocalizedString(@"Please enter an email and password.", nil)];
+    } else if (![self.passwordTextField.text isEqualToString:self.comfirmTextField.text]) {
+        [self alertWithMessage:NSLocalizedString(@"Please check your password.", nil)];
     } else {
-        
+        [self createUser];
     }
+}
+
+- (void)createUser {
+    [Spinner start];
+    
+    [[FIRAuth auth] createUserWithEmail:self.emailTextField.text
+                               password:self.passwordTextField.text completion:^(FIRAuthDataResult *authResult, NSError *error) {
+                                   [Spinner stop];
+                                   
+                                   if (!error) {
+                                       [self showSuccessfulMessage];
+                                   } else {
+                                       [self alertWithMessage:error.localizedDescription];
+                                   }
+                               }];
 }
 
 #pragma mark - Alert Message

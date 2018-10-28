@@ -16,6 +16,7 @@
 		923F59B62184BC9A00EB810D /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59B52184BC9A00EB810D /* LoginTableViewController.m */; };
 		923F59B92184BD2300EB810D /* SignUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59B82184BD2300EB810D /* SignUpTableViewController.m */; };
 		923F59BC2185873A00EB810D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 923F59BB2185873A00EB810D /* GoogleService-Info.plist */; };
+		923F59C021859AE400EB810D /* Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59BF21859AE400EB810D /* Spinner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		923F59B72184BD2300EB810D /* SignUpTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpTableViewController.h; sourceTree = "<group>"; };
 		923F59B82184BD2300EB810D /* SignUpTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpTableViewController.m; sourceTree = "<group>"; };
 		923F59BB2185873A00EB810D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		923F59BE21859AE400EB810D /* Spinner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spinner.h; sourceTree = "<group>"; };
+		923F59BF21859AE400EB810D /* Spinner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spinner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		923F59B221845C4B00EB810D /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				923F59BD21859AA900EB810D /* Helper */,
 				923F59B321845C5D00EB810D /* Login */,
 			);
 			path = Module;
@@ -108,6 +112,15 @@
 				923F59B82184BD2300EB810D /* SignUpTableViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		923F59BD21859AA900EB810D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				923F59BE21859AE400EB810D /* Spinner.h */,
+				923F59BF21859AE400EB810D /* Spinner.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		FAD2D60CAF32BD288FDB7236 /* Pods */ = {
@@ -194,15 +207,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Persona-checkManifestLockResult.txt",
 			);
@@ -216,8 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Persona/Pods-Persona-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -225,8 +232,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -248,6 +253,7 @@
 				923F59AC2184570C00EB810D /* main.m in Sources */,
 				923F599E2184570700EB810D /* AppDelegate.m in Sources */,
 				923F59B92184BD2300EB810D /* SignUpTableViewController.m in Sources */,
+				923F59C021859AE400EB810D /* Spinner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
