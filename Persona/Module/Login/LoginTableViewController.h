@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoginTableViewController.h
 //  Persona
 //
 //  Created by Azules on 2018/10/27.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LoginTableViewController : UITableViewController
 
 @end
-
