@@ -31,6 +31,15 @@
 }
 
 - (void)checkCurrentUser {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    if ([[FIRAuth auth] currentUser]) {
+        UITabBarController *tabBarController = [storyBoard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+        self.window.rootViewController = tabBarController;
+    } else {
+        UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"LoginNavigation"];
+        self.window.rootViewController = navigationController;
+    }
 }
 
 @end

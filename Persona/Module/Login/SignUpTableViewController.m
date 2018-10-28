@@ -9,6 +9,7 @@
 #import "SignUpTableViewController.h"
 #import "Spinner.h"
 @import FirebaseAuth;
+@import FirebaseDatabase;
 
 @interface SignUpTableViewController () <UITextFieldDelegate>
 
@@ -57,7 +58,16 @@
                                    [Spinner stop];
                                    
                                    if (!error) {
-                                       [self showSuccessfulMessage];
+                                       NSDictionary *userData = @{@"userEmail": self.emailTextField.text};
+                                       
+                                       FIRDatabaseReference *reference = [[[[FIRDatabase database] reference] child:@"users"] child:authResult.user.uid];
+                                       [reference setValue:userData withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                                           if (!error) {
+                                               [self showSuccessfulMessage];
+                                           } else {
+                                               [self alertWithMessage:error.localizedDescription];
+                                           }
+                                       }];
                                    } else {
                                        [self alertWithMessage:error.localizedDescription];
                                    }
@@ -71,7 +81,7 @@
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
-                                                          style:UIAlertActionStyleCancel
+                                                          style:UIAlertActionStyleDefault
                                                         handler:nil];
     [alertController addAction:alertAction];
     
@@ -85,7 +95,7 @@
                                                                              message:@""
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
-                                                          style:UIAlertActionStyleCancel
+                                                          style:UIAlertActionStyleDefault
                                                         handler:^(UIAlertAction * _Nonnull action) {
                                                             [self.navigationController popViewControllerAnimated:YES];
                                                         }];
