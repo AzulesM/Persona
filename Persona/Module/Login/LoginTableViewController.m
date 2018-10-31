@@ -61,30 +61,16 @@
     [Spinner start];
     
     [[FIRAuth auth] signInWithEmail:self.emailTextField.text
-                           password:self.passwordTextField.text completion:^(FIRAuthDataResult *authResult, NSError * _Nullable error) {
-                               [Spinner stop];
-                               
-                               if (!error) {
-                                   FIRDatabaseReference *reference = [[[[FIRDatabase database] reference] child:@"users"] child:authResult.user.uid];
-                                   [[reference queryOrderedByKey] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
-                                       if (snapshot.childrenCount > 0) {
-                                           NSDictionary *snapshotValue = (NSDictionary *)snapshot.value;
-                                           NSMutableDictionary *userData = [NSMutableDictionary dictionary];
-                                           userData[@"userId"] = authResult.user.uid;
-                                           userData[@"userEmail"] = snapshotValue[@"userEmail"];
-                                           userData[@"userImageURL"] = snapshotValue[@"userImageURL"];
-                                           
-                                           [[NSUserDefaults standardUserDefaults] setObject:userData forKey:@"userData"];
-                                           [[NSUserDefaults standardUserDefaults] synchronize];
-                                       }
-                                       
-                                       AppDelegate *appDelegateTemp = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-                                       [appDelegateTemp checkCurrentUser];
-                                   }];
-                               } else {
-                                   [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:error.localizedDescription];
-                               }
-                           }];
+                           password:self.passwordTextField.text
+                         completion:^(FIRAuthDataResult *authResult, NSError *error) {
+                             [Spinner stop];
+                             
+                             if (error) {
+                                 [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:error.localizedDescription];
+                             } else if (!authResult.user.emailVerified) {
+                                 [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:@"Your account has not been activated."];
+                             }
+                         }];
 }
 
 - (void)resetPasswordWithEmail:(NSString *)email {

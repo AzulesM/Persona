@@ -54,24 +54,23 @@
     [Spinner start];
     
     [[FIRAuth auth] createUserWithEmail:self.emailTextField.text
-                               password:self.passwordTextField.text completion:^(FIRAuthDataResult *authResult, NSError *error) {
-                                   [Spinner stop];
-                                   
-                                   if (!error) {
-                                       NSDictionary *userData = @{@"userEmail": self.emailTextField.text};
-                                       
-                                       FIRDatabaseReference *reference = [[[[FIRDatabase database] reference] child:@"users"] child:authResult.user.uid];
-                                       [reference setValue:userData withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
-                                           if (!error) {
-                                               [self showSuccessfulMessage];
-                                           } else {
-                                               [self alertWithMessage:error.localizedDescription];
-                                           }
-                                       }];
-                                   } else {
-                                       [self alertWithMessage:error.localizedDescription];
-                                   }
-                               }];
+                               password:self.passwordTextField.text
+                             completion:^(FIRAuthDataResult *authResult, NSError *error) {                                 
+                                 if (!error) {
+                                     [authResult.user sendEmailVerificationWithCompletion:^(NSError *error) {
+                                         [Spinner stop];
+                                         
+                                         if (!error) {
+                                             [self showSuccessfulMessage];
+                                         } else {
+                                             [self alertWithMessage:error.localizedDescription];
+                                         }
+                                     }];
+                                 } else {
+                                     [Spinner stop];
+                                     [self alertWithMessage:error.localizedDescription];
+                                 }
+                             }];
 }
 
 #pragma mark - Alert Message
@@ -91,8 +90,8 @@
 }
 
 - (void)showSuccessfulMessage {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sign Up Successful"
-                                                                             message:@""
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Activate Your Account"
+                                                                             message:@"A validation email has been sent to your email, please click the link to activate your account."
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
                                                           style:UIAlertActionStyleDefault

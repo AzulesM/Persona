@@ -11,6 +11,8 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) FIRAuthStateDidChangeListenerHandle handle;
+
 @end
 
 @implementation AppDelegate
@@ -31,15 +33,20 @@
 }
 
 - (void)checkCurrentUser {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    
-    if ([[FIRAuth auth] currentUser]) {
-        UITabBarController *tabBarController = [storyBoard instantiateViewControllerWithIdentifier:@"MainTabBar"];
-        self.window.rootViewController = tabBarController;
-    } else {
-        UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"LoginNavigation"];
-        self.window.rootViewController = navigationController;
-    }
+    __weak typeof(self) weakSelf = self;
+    self.handle = [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *auth, FIRUser *user) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        
+        if (auth.currentUser && user.emailVerified) {
+//            [[FIRAuth auth] signOut:nil];
+            UITabBarController *tabBarController = [storyBoard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+            weakSelf.window.rootViewController = tabBarController;
+//        } else if (!auth.currentUser) {
+        } else {
+            UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"LoginNavigation"];
+            weakSelf.window.rootViewController = navigationController;
+        }
+    }];
 }
 
 @end
