@@ -9,7 +9,6 @@
 #import "SignUpTableViewController.h"
 #import "Spinner.h"
 @import FirebaseAuth;
-@import FirebaseDatabase;
 
 @interface SignUpTableViewController () <UITextFieldDelegate>
 

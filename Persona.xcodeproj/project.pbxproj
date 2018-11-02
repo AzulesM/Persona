@@ -17,6 +17,7 @@
 		923F59B92184BD2300EB810D /* SignUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59B82184BD2300EB810D /* SignUpTableViewController.m */; };
 		923F59BC2185873A00EB810D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 923F59BB2185873A00EB810D /* GoogleService-Info.plist */; };
 		923F59C021859AE400EB810D /* Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59BF21859AE400EB810D /* Spinner.m */; };
+		923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		923F59BB2185873A00EB810D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		923F59BE21859AE400EB810D /* Spinner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spinner.h; sourceTree = "<group>"; };
 		923F59BF21859AE400EB810D /* Spinner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spinner.m; sourceTree = "<group>"; };
+		923F59D3218A0C5E00EB810D /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 			children = (
 				923F59BD21859AA900EB810D /* Helper */,
 				923F59B321845C5D00EB810D /* Login */,
+				923F59D2218A0BE200EB810D /* Settings */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -121,6 +125,15 @@
 				923F59BF21859AE400EB810D /* Spinner.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		923F59D2218A0BE200EB810D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				923F59D3218A0C5E00EB810D /* SettingsTableViewController.h */,
+				923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		FAD2D60CAF32BD288FDB7236 /* Pods */ = {
@@ -251,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */,
 				923F59B62184BC9A00EB810D /* LoginTableViewController.m in Sources */,
 				923F59AC2184570C00EB810D /* main.m in Sources */,
 				923F599E2184570700EB810D /* AppDelegate.m in Sources */,

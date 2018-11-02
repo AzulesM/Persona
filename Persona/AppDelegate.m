@@ -38,10 +38,8 @@
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         
         if (auth.currentUser && user.emailVerified) {
-//            [[FIRAuth auth] signOut:nil];
             UITabBarController *tabBarController = [storyBoard instantiateViewControllerWithIdentifier:@"MainTabBar"];
             weakSelf.window.rootViewController = tabBarController;
-//        } else if (!auth.currentUser) {
         } else {
             UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"LoginNavigation"];
             weakSelf.window.rootViewController = navigationController;

@@ -10,7 +10,6 @@
 #import "Spinner.h"
 #import "AppDelegate.h"
 @import FirebaseAuth;
-@import FirebaseDatabase;
 
 @interface LoginTableViewController () <UITextFieldDelegate>
 
