@@ -7,6 +7,7 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "AppDelegate.h"
 @import FirebaseAuth;
 
 @interface SettingsTableViewController () <UITableViewDelegate>
@@ -63,6 +64,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
         [[FIRAuth auth] signOut:nil];
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [delegate checkCurrentUser];
     }
 }
 

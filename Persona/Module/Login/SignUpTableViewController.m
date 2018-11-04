@@ -12,6 +12,7 @@
 
 @interface SignUpTableViewController () <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *comfirmTextField;
@@ -40,7 +41,9 @@
 - (IBAction)signUpButtonTapped {
     [self.view endEditing:YES];
     
-    if ([self.emailTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""] || [self.comfirmTextField.text isEqualToString:@""]) {
+    if ([self.nameTextField.text isEqualToString:@""]) {
+        [self alertWithMessage:NSLocalizedString(@"Please enter your name.", nil)];
+    } else if ([self.emailTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""] || [self.comfirmTextField.text isEqualToString:@""]) {
         [self alertWithMessage:NSLocalizedString(@"Please enter an email and password.", nil)];
     } else if (![self.passwordTextField.text isEqualToString:self.comfirmTextField.text]) {
         [self alertWithMessage:NSLocalizedString(@"Please check your password.", nil)];
@@ -65,6 +68,10 @@
                                              [self alertWithMessage:error.localizedDescription];
                                          }
                                      }];
+                                     
+                                     FIRUserProfileChangeRequest *request = [authResult.user profileChangeRequest];
+                                     request.displayName = self.nameTextField.text;
+                                     [request commitChangesWithCompletion:nil];
                                  } else {
                                      [Spinner stop];
                                      [self alertWithMessage:error.localizedDescription];
@@ -94,7 +101,7 @@
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
                                                           style:UIAlertActionStyleDefault
-                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                        handler:^(UIAlertAction *action) {
                                                             [self.navigationController popViewControllerAnimated:YES];
                                                         }];
     [alertController addAction:alertAction];
@@ -107,7 +114,9 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {
-    if ([textField isEqual:self.emailTextField]) {
+    if ([textField isEqual:self.nameTextField]) {
+        [self.emailTextField becomeFirstResponder];
+    } else if ([textField isEqual:self.emailTextField]) {
         [self.passwordTextField becomeFirstResponder];
     } else if ([textField isEqual:self.passwordTextField]) {
         [self.comfirmTextField resignFirstResponder];

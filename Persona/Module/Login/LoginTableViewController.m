@@ -68,6 +68,9 @@
                                  [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:error.localizedDescription];
                              } else if (!authResult.user.emailVerified) {
                                  [self alertWithTitle:NSLocalizedString(@"Error", nil) andMessage:@"Your account has not been activated."];
+                             } else {
+                                 AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                                 [delegate checkCurrentUser];
                              }
                          }];
 }
