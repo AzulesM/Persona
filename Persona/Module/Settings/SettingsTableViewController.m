@@ -8,13 +8,19 @@
 
 #import "SettingsTableViewController.h"
 #import "AppDelegate.h"
+#import "Spinner.h"
+#import <Photos/Photos.h>
+#import <AVFoundation/AVFoundation.h>
 @import FirebaseAuth;
+@import FirebaseStorage;
 
-@interface SettingsTableViewController () <UITableViewDelegate>
+@interface SettingsTableViewController () <UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+
+@property (strong, nonatomic) UIImage *image;
 
 @end
 
@@ -32,6 +38,7 @@
     self.imageView.layer.borderWidth = 1.f;
     self.imageView.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imageView.layer.cornerRadius = CGRectGetWidth(self.imageView.frame) / 2.f;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImageView)]];
     
     FIRUser *user = [[FIRAuth auth] currentUser];
     
@@ -59,6 +66,126 @@
     }
 }
 
+- (void)didTapImageView {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIImagePickerController *pickerController = [UIImagePickerController new];
+    pickerController.delegate = self;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Camera", nil)
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction *action) {
+                                                                pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                                                [self presentViewController:pickerController animated:YES completion:nil];
+                                                            }];
+        [alertController addAction:alertAction];
+    }
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Photo Library", nil)
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction *action) {
+                                                                pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                                                [self presentViewController:pickerController animated:YES completion:nil];
+                                                            }];
+        [alertController addAction:alertAction];
+    }
+
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil]];
+    
+    if (!self.presentedViewController) {
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+- (void)uploadPhoto {
+    FIRUser *user = [[FIRAuth auth] currentUser];
+    FIRStorageReference *storageRef = [[FIRStorage storage] reference];
+    FIRStorageReference *imagesRef = [storageRef child:[NSString stringWithFormat:@"images/%@.png", user.uid]];
+    NSData *data = UIImagePNGRepresentation(self.image);
+    FIRStorageUploadTask *uploadTask = [imagesRef putData:data metadata:nil];
+    [uploadTask observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot *snapshot) {
+        if (snapshot.error) {
+            [self alertWithMessage:snapshot.error.localizedDescription];
+        } else if (snapshot.progress.completedUnitCount == snapshot.progress.totalUnitCount) {
+//            [self downloadPhoto];
+            [imagesRef downloadURLWithCompletion:^(NSURL *URL, NSError *error) {
+                if (error) {
+                    [self alertWithMessage:error.localizedDescription];
+                } else {
+                    FIRUserProfileChangeRequest *request = [user profileChangeRequest];
+                    request.photoURL = URL;
+                    [request commitChangesWithCompletion:^(NSError *error) {
+                        if (error) {
+                            [self alertWithMessage:error.localizedDescription];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+//    [uploadTask observeStatus:FIRStorageTaskStatusFailure handler:^(FIRStorageTaskSnapshot *snapshot) {
+//        [self alertWithMessage:snapshot.error.localizedDescription];
+//    }];
+//    [uploadTask observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot *snapshot) {
+//        [imagesRef downloadURLWithCompletion:^(NSURL *URL, NSError *error) {
+//            NSLog(@"url %@, error2 %@", URL.absoluteString, error);
+//
+//            if (error) {
+//                [self alertWithMessage:error.localizedDescription];
+//            } else {
+//                FIRUserProfileChangeRequest *request = [user profileChangeRequest];
+//                request.photoURL = URL;
+//                [request commitChangesWithCompletion:^(NSError *error) {
+//                    NSLog(@"error3 %@", error);
+//                    if (error) {
+//                        [self alertWithMessage:error.localizedDescription];
+//                    } else {
+//                        [Spinner stop];
+//                    }
+//                }];
+//            }
+//        }];
+//    }];
+}
+
+- (void)downloadPhoto {
+    FIRUser *user = [[FIRAuth auth] currentUser];
+    FIRStorageReference *storageRef = [[FIRStorage storage] reference];
+    FIRStorageReference *imagesRef = [storageRef child:[NSString stringWithFormat:@"images/%@.png", user.uid]];
+    [imagesRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData *data, NSError *error) {
+        NSLog(@"data %@, error %@", data, error);
+        if (error) {
+            [self alertWithMessage:error.localizedDescription];
+        } else {
+            self.imageView.image = [UIImage imageWithData:data];
+        }
+    }];
+}
+
+#pragma mark - Alert Message
+
+- (void)alertWithMessage:(NSString *)message {
+    [Spinner stop];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:nil];
+    [alertController addAction:alertAction];
+    
+    if (!self.presentedViewController) {
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,6 +196,22 @@
     }
 }
 
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    if (image) {
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [image drawInRect:CGRectMake(0.f, 0.f, 500.f, 500.f)];
+        self.image = UIGraphicsGetImageFromCurrentImageContext();
+        self.imageView.image = self.image;
+        UIGraphicsEndImageContext();
+        [self uploadPhoto];
+    }
+}
 /*
 #pragma mark - Navigation
 

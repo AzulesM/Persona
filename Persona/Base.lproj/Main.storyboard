@@ -173,8 +173,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-Mr-lTd">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-Mr-lTd">
                                     <rect key="frame" x="140.5" y="30" width="94" height="94.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="UDm-Mr-lTd" secondAttribute="height" multiplier="1:1" id="YFw-x8-ba0"/>
                                     </constraints>
@@ -189,7 +190,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hJV-Qv-O8R">
-                                    <rect key="frame" x="18.5" y="184.5" width="337.5" height="25"/>
+                                    <rect key="frame" x="18.5" y="179.5" width="337.5" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="Ev6-QD-LDH"/>
                                     </constraints>
@@ -201,7 +202,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Jgl-cJ-oLS" firstAttribute="width" secondItem="foB-hX-vjf" secondAttribute="width" multiplier="0.9" id="FqC-xs-0GM"/>
-                                <constraint firstItem="hJV-Qv-O8R" firstAttribute="top" secondItem="Jgl-cJ-oLS" secondAttribute="bottom" constant="10" id="Fv2-mF-Vda"/>
+                                <constraint firstItem="hJV-Qv-O8R" firstAttribute="top" secondItem="Jgl-cJ-oLS" secondAttribute="bottom" constant="5" id="Fv2-mF-Vda"/>
                                 <constraint firstItem="hJV-Qv-O8R" firstAttribute="centerX" secondItem="Jgl-cJ-oLS" secondAttribute="centerX" id="IYY-z2-anN"/>
                                 <constraint firstItem="UDm-Mr-lTd" firstAttribute="centerX" secondItem="foB-hX-vjf" secondAttribute="centerX" id="JG7-LF-kCa"/>
                                 <constraint firstItem="Jgl-cJ-oLS" firstAttribute="top" secondItem="UDm-Mr-lTd" secondAttribute="bottom" constant="15" id="m1y-pD-oqI"/>
