@@ -18,6 +18,7 @@
 		923F59BC2185873A00EB810D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 923F59BB2185873A00EB810D /* GoogleService-Info.plist */; };
 		923F59C021859AE400EB810D /* Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59BF21859AE400EB810D /* Spinner.m */; };
 		923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */; };
+		923F59DA2190C0C400EB810D /* PasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D92190C0C400EB810D /* PasswordTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		923F59BF21859AE400EB810D /* Spinner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spinner.m; sourceTree = "<group>"; };
 		923F59D3218A0C5E00EB810D /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		923F59D82190C0C400EB810D /* PasswordTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewController.h; sourceTree = "<group>"; };
+		923F59D92190C0C400EB810D /* PasswordTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 			children = (
 				923F59D3218A0C5E00EB810D /* SettingsTableViewController.h */,
 				923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */,
+				923F59D82190C0C400EB810D /* PasswordTableViewController.h */,
+				923F59D92190C0C400EB810D /* PasswordTableViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				923F599E2184570700EB810D /* AppDelegate.m in Sources */,
 				923F59B92184BD2300EB810D /* SignUpTableViewController.m in Sources */,
 				923F59C021859AE400EB810D /* Spinner.m in Sources */,
+				923F59DA2190C0C400EB810D /* PasswordTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
