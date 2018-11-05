@@ -172,7 +172,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-Mr-lTd">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-Mr-lTd">
                                     <rect key="frame" x="140.5" y="30" width="94" height="94.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -297,7 +297,7 @@
                             <outlet property="delegate" destination="BOH-OZ-RTv" id="hav-Fz-YDr"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Eath" id="uel-Hf-tJf"/>
+                    <tabBarItem key="tabBarItem" title="Eath" image="ethereum" id="uel-Hf-tJf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5a-9R-CIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,6 +311,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BOH-OZ-RTv" kind="relationship" relationship="viewControllers" id="uLJ-BP-byZ"/>
@@ -495,7 +496,7 @@
         <scene sceneID="hjf-AL-S8F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bya-LD-NyE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="Se3-2n-VSk"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Se3-2n-VSk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v34-UU-pTS">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -649,4 +650,9 @@
             <point key="canvasLocation" x="2920.8000000000002" y="2259.2203898050975"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avatar" width="512" height="512"/>
+        <image name="ethereum" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
+    </resources>
 </document>
