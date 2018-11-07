@@ -19,6 +19,7 @@
 		923F59C021859AE400EB810D /* Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59BF21859AE400EB810D /* Spinner.m */; };
 		923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */; };
 		923F59DA2190C0C400EB810D /* PasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D92190C0C400EB810D /* PasswordTableViewController.m */; };
+		923F59EA219354A300EB810D /* EthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F59E9219354A300EB810D /* EthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		923F59D82190C0C400EB810D /* PasswordTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewController.h; sourceTree = "<group>"; };
 		923F59D92190C0C400EB810D /* PasswordTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewController.m; sourceTree = "<group>"; };
+		923F59E62193548D00EB810D /* Persona-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Persona-Bridging-Header.h"; sourceTree = "<group>"; };
+		923F59E9219354A300EB810D /* EthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 				923F59BB2185873A00EB810D /* GoogleService-Info.plist */,
 				923F59AA2184570C00EB810D /* Info.plist */,
 				923F59AB2184570C00EB810D /* main.m */,
+				923F59E62193548D00EB810D /* Persona-Bridging-Header.h */,
 			);
 			path = Persona;
 			sourceTree = "<group>";
@@ -103,6 +107,7 @@
 		923F59B221845C4B00EB810D /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				923F59E52193542900EB810D /* Ether */,
 				923F59BD21859AA900EB810D /* Helper */,
 				923F59B321845C5D00EB810D /* Login */,
 				923F59D2218A0BE200EB810D /* Settings */,
@@ -139,6 +144,14 @@
 				923F59D92190C0C400EB810D /* PasswordTableViewController.m */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		923F59E52193542900EB810D /* Ether */ = {
+			isa = PBXGroup;
+			children = (
+				923F59E9219354A300EB810D /* EthViewController.swift */,
+			);
+			path = Ether;
 			sourceTree = "<group>";
 		};
 		FAD2D60CAF32BD288FDB7236 /* Pods */ = {
@@ -183,6 +196,7 @@
 				TargetAttributes = {
 					923F59982184570700EB810D = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -286,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */,
+				923F59EA219354A300EB810D /* EthViewController.swift in Sources */,
 				923F59B62184BC9A00EB810D /* LoginTableViewController.m in Sources */,
 				923F59AC2184570C00EB810D /* main.m in Sources */,
 				923F599E2184570700EB810D /* AppDelegate.m in Sources */,
@@ -432,12 +447,16 @@
 			baseConfigurationReference = 689E2C16FB1B3A86EA783677 /* Pods-Persona.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Persona/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.azules.Persona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Persona/Persona-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -447,12 +466,15 @@
 			baseConfigurationReference = 1A23C761B4E193076B4381F2 /* Pods-Persona.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Persona/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.azules.Persona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Persona/Persona-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
