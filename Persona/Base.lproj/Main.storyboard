@@ -430,7 +430,7 @@
                                                             <rect key="frame" x="0.0" y="50" width="262.5" height="30"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="Vd5-QE-iAG" id="DSF-8e-sLQ"/>
                                                             </connections>
@@ -700,11 +700,11 @@
             </objects>
             <point key="canvasLocation" x="2920.8000000000002" y="2259.2203898050975"/>
         </scene>
-        <!--Eather-->
+        <!--Ether-->
         <scene sceneID="iBw-HJ-7Xq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="erk-Rk-kZT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Eather" image="ethereum" id="uel-Hf-tJf"/>
+                    <tabBarItem key="tabBarItem" title="Ether" image="ethereum" id="uel-Hf-tJf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="asI-O2-r8n">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

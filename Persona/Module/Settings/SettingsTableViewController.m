@@ -108,7 +108,9 @@
     FIRStorageReference *storageRef = [[FIRStorage storage] reference];
     FIRStorageReference *imagesRef = [storageRef child:[NSString stringWithFormat:@"images/%@.png", user.uid]];
     NSData *data = UIImagePNGRepresentation(self.image);
-    FIRStorageUploadTask *uploadTask = [imagesRef putData:data metadata:nil];
+    FIRStorageMetadata *metadata = [FIRStorageMetadata new];
+    metadata.contentType = @"image/png";
+    FIRStorageUploadTask *uploadTask = [imagesRef putData:data metadata:metadata];
     [uploadTask observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot *snapshot) {
         if (snapshot.error) {
             [self alertWithMessage:snapshot.error.localizedDescription];
