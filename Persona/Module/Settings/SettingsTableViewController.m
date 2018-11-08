@@ -193,6 +193,13 @@
         [[FIRAuth auth] signOut:nil];
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate checkCurrentUser];
+        
+        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        NSString *filePath = [documentPath stringByAppendingPathComponent:@"/keystore/key.json"];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+        }
     }
 }
 
