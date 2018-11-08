@@ -7,25 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88FDF620D42B166FF305CB3D /* Pods_Persona.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102A46C0C2DEC3E383455D7E /* Pods_Persona.framework */; };
 		923F599E2184570700EB810D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F599D2184570700EB810D /* AppDelegate.m */; };
-		923F59A12184570700EB810D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59A02184570700EB810D /* ViewController.m */; };
 		923F59A42184570700EB810D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923F59A22184570700EB810D /* Main.storyboard */; };
 		923F59A62184570C00EB810D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923F59A52184570C00EB810D /* Assets.xcassets */; };
 		923F59A92184570C00EB810D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923F59A72184570C00EB810D /* LaunchScreen.storyboard */; };
 		923F59AC2184570C00EB810D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59AB2184570C00EB810D /* main.m */; };
+		923F59B62184BC9A00EB810D /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59B52184BC9A00EB810D /* LoginTableViewController.m */; };
+		923F59B92184BD2300EB810D /* SignUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59B82184BD2300EB810D /* SignUpTableViewController.m */; };
+		923F59BC2185873A00EB810D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 923F59BB2185873A00EB810D /* GoogleService-Info.plist */; };
+		923F59C021859AE400EB810D /* Spinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59BF21859AE400EB810D /* Spinner.m */; };
+		923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */; };
+		923F59DA2190C0C400EB810D /* PasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923F59D92190C0C400EB810D /* PasswordTableViewController.m */; };
+		923F59EA219354A300EB810D /* EthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F59E9219354A300EB810D /* EthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		102A46C0C2DEC3E383455D7E /* Pods_Persona.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Persona.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A23C761B4E193076B4381F2 /* Pods-Persona.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Persona.release.xcconfig"; path = "Pods/Target Support Files/Pods-Persona/Pods-Persona.release.xcconfig"; sourceTree = "<group>"; };
+		689E2C16FB1B3A86EA783677 /* Pods-Persona.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Persona.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Persona/Pods-Persona.debug.xcconfig"; sourceTree = "<group>"; };
 		923F59992184570700EB810D /* Persona.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persona.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		923F599C2184570700EB810D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		923F599D2184570700EB810D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		923F599F2184570700EB810D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		923F59A02184570700EB810D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		923F59A32184570700EB810D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		923F59A52184570C00EB810D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		923F59A82184570C00EB810D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		923F59AA2184570C00EB810D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		923F59AB2184570C00EB810D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		923F59B42184BC9A00EB810D /* LoginTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
+		923F59B52184BC9A00EB810D /* LoginTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
+		923F59B72184BD2300EB810D /* SignUpTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpTableViewController.h; sourceTree = "<group>"; };
+		923F59B82184BD2300EB810D /* SignUpTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpTableViewController.m; sourceTree = "<group>"; };
+		923F59BB2185873A00EB810D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		923F59BE21859AE400EB810D /* Spinner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spinner.h; sourceTree = "<group>"; };
+		923F59BF21859AE400EB810D /* Spinner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spinner.m; sourceTree = "<group>"; };
+		923F59D3218A0C5E00EB810D /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		923F59D82190C0C400EB810D /* PasswordTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewController.h; sourceTree = "<group>"; };
+		923F59D92190C0C400EB810D /* PasswordTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewController.m; sourceTree = "<group>"; };
+		923F59E62193548D00EB810D /* Persona-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Persona-Bridging-Header.h"; sourceTree = "<group>"; };
+		923F59E9219354A300EB810D /* EthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +54,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FDF620D42B166FF305CB3D /* Pods_Persona.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F7F07EDAD80720D801E985E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				102A46C0C2DEC3E383455D7E /* Pods_Persona.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		923F59902184570700EB810D = {
 			isa = PBXGroup;
 			children = (
 				923F599B2184570700EB810D /* Persona */,
 				923F599A2184570700EB810D /* Products */,
+				FAD2D60CAF32BD288FDB7236 /* Pods */,
+				7F7F07EDAD80720D801E985E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,17 +90,77 @@
 		923F599B2184570700EB810D /* Persona */ = {
 			isa = PBXGroup;
 			children = (
+				923F59B221845C4B00EB810D /* Module */,
 				923F599C2184570700EB810D /* AppDelegate.h */,
 				923F599D2184570700EB810D /* AppDelegate.m */,
-				923F599F2184570700EB810D /* ViewController.h */,
-				923F59A02184570700EB810D /* ViewController.m */,
 				923F59A22184570700EB810D /* Main.storyboard */,
 				923F59A52184570C00EB810D /* Assets.xcassets */,
 				923F59A72184570C00EB810D /* LaunchScreen.storyboard */,
+				923F59BB2185873A00EB810D /* GoogleService-Info.plist */,
 				923F59AA2184570C00EB810D /* Info.plist */,
 				923F59AB2184570C00EB810D /* main.m */,
+				923F59E62193548D00EB810D /* Persona-Bridging-Header.h */,
 			);
 			path = Persona;
+			sourceTree = "<group>";
+		};
+		923F59B221845C4B00EB810D /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				923F59E52193542900EB810D /* Ether */,
+				923F59BD21859AA900EB810D /* Helper */,
+				923F59B321845C5D00EB810D /* Login */,
+				923F59D2218A0BE200EB810D /* Settings */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		923F59B321845C5D00EB810D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				923F59B42184BC9A00EB810D /* LoginTableViewController.h */,
+				923F59B52184BC9A00EB810D /* LoginTableViewController.m */,
+				923F59B72184BD2300EB810D /* SignUpTableViewController.h */,
+				923F59B82184BD2300EB810D /* SignUpTableViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		923F59BD21859AA900EB810D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				923F59BE21859AE400EB810D /* Spinner.h */,
+				923F59BF21859AE400EB810D /* Spinner.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		923F59D2218A0BE200EB810D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				923F59D3218A0C5E00EB810D /* SettingsTableViewController.h */,
+				923F59D4218A0C5E00EB810D /* SettingsTableViewController.m */,
+				923F59D82190C0C400EB810D /* PasswordTableViewController.h */,
+				923F59D92190C0C400EB810D /* PasswordTableViewController.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		923F59E52193542900EB810D /* Ether */ = {
+			isa = PBXGroup;
+			children = (
+				923F59E9219354A300EB810D /* EthViewController.swift */,
+			);
+			path = Ether;
+			sourceTree = "<group>";
+		};
+		FAD2D60CAF32BD288FDB7236 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				689E2C16FB1B3A86EA783677 /* Pods-Persona.debug.xcconfig */,
+				1A23C761B4E193076B4381F2 /* Pods-Persona.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 923F59AF2184570C00EB810D /* Build configuration list for PBXNativeTarget "Persona" */;
 			buildPhases = (
+				95B64F8C07258D7084689B5B /* [CP] Check Pods Manifest.lock */,
 				923F59952184570700EB810D /* Sources */,
 				923F59962184570700EB810D /* Frameworks */,
 				923F59972184570700EB810D /* Resources */,
+				D834ECF696BD9EFC14D5395A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -102,6 +196,7 @@
 				TargetAttributes = {
 					923F59982184570700EB810D = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -130,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				923F59A92184570C00EB810D /* LaunchScreen.storyboard in Resources */,
+				923F59BC2185873A00EB810D /* GoogleService-Info.plist in Resources */,
 				923F59A62184570C00EB810D /* Assets.xcassets in Resources */,
 				923F59A42184570700EB810D /* Main.storyboard in Resources */,
 			);
@@ -137,14 +233,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95B64F8C07258D7084689B5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Persona-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D834ECF696BD9EFC14D5395A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Persona/Pods-Persona-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
+				"${BUILT_PRODUCTS_DIR}/web3swift/web3swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Persona/Pods-Persona-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		923F59952184570700EB810D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				923F59A12184570700EB810D /* ViewController.m in Sources */,
+				923F59D5218A0C5E00EB810D /* SettingsTableViewController.m in Sources */,
+				923F59EA219354A300EB810D /* EthViewController.swift in Sources */,
+				923F59B62184BC9A00EB810D /* LoginTableViewController.m in Sources */,
 				923F59AC2184570C00EB810D /* main.m in Sources */,
 				923F599E2184570700EB810D /* AppDelegate.m in Sources */,
+				923F59B92184BD2300EB810D /* SignUpTableViewController.m in Sources */,
+				923F59C021859AE400EB810D /* Spinner.m in Sources */,
+				923F59DA2190C0C400EB810D /* PasswordTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,28 +444,37 @@
 		};
 		923F59B02184570C00EB810D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 689E2C16FB1B3A86EA783677 /* Pods-Persona.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Persona/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.azules.Persona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Persona/Persona-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		923F59B12184570C00EB810D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A23C761B4E193076B4381F2 /* Pods-Persona.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Persona/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.azules.Persona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Persona/Persona-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
